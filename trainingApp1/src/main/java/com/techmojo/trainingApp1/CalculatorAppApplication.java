@@ -9,23 +9,35 @@ import java.io.IOException;
 import java.util.*;
 @SpringBootApplication
 public class CalculatorAppApplication {
-	/*public static void printRes(oper, obj1) {
+	
+	
+	public static void printRes(int oper, Operations obj1) {
 		switch(oper) {
-		case 1://ADDITION
-			System.out.println("RESULT = "+obj1.add());
-			break;
-		case 2://SUBSTRACTION
-			System.out.println("RESULT = "+obj1.sub());
-			break;
-		case 3://MULTIPLICATION
-			System.out.println("RESULT = "+obj1.mul());
-			break;
-		case 4://DIVISION
-			System.out.println("RESULT = "+obj1.div());
-			break;
+			case 1://ADDITION
+				System.out.println("RESULT = "+obj1.add());
+				break;
+			case 2://SUBSTRACTION
+				System.out.println("RESULT = "+obj1.sub());
+				break;
+			case 3://MULTIPLICATION
+				System.out.println("RESULT = "+obj1.mul());
+				break;
+			case 4://DIVISION
+				System.out.println("RESULT = "+obj1.div());
+				break;
+		}
 	}
-	}*/
-
+	
+	
+	public static void printMenu() {
+		System.out.print("\n1\tADDITION"
+						+ "\n2\tSUBSTRACTION"
+						+ "\n3\tMULTIPLICATION"
+						+ "\n4\tDIVISION"
+						+ "\nSELECT OPERATION :\t");
+	}
+	
+	
 	public static void main(String[] args)throws IOException {
 		System.out.print("\tCALCULATOR");
 		Scanner scan = new Scanner(System.in);
@@ -37,41 +49,15 @@ public class CalculatorAppApplication {
 		switch(MainOption) {
 			case 1://CONSOLE INPUT
 				Operations obj1= new ConsoleInput();
-				System.out.print("\n1\tADDITION\n2\tSUBSTRACTION\n3\tMULTIPLICATION\n4\tDIVISION\nSELECT OPERATION :\t");
+				printMenu();
 				int oper = scan.nextInt();
-				switch(oper) {
-					case 1://ADDITION
-						System.out.println("RESULT = "+obj1.add());
-						break;
-					case 2://SUBSTRACTION
-						System.out.println("RESULT = "+obj1.sub());
-						break;
-					case 3://MULTIPLICATION
-						System.out.println("RESULT = "+obj1.mul());
-						break;
-					case 4://DIVISION
-						System.out.println("RESULT = "+obj1.div());
-						break;
-				}
+				printRes(oper,obj1);
 				break;
 			case 2://FILE
 				Operations obj2= new ProperityFile();
-				System.out.print("\n1\tADDITION\n2\tSUBSTRACTION\n3\tMULTIPLICATION\n4\tDIVISION\nSELECT OPERATION :\t");
+				printMenu();
 				int oper1 = scan.nextInt();
-				switch(oper1) {
-					case 1://ADDITION
-						System.out.println("RESULT = "+obj2.add());
-						break;
-					case 2://SUBSTRACTION
-						System.out.println("RESULT = "+obj2.sub());
-						break;
-					case 3://MULTIPLICATION
-						System.out.println("RESULT = "+obj2.mul());
-						break;
-					case 4://DIVISION
-						System.out.println("RESULT = "+obj2.div());
-						break;
-				}
+				printRes(oper1,obj2);
 				break;
 			case 3://API CALL
 				break;
